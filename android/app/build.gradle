@@ -1,0 +1,43 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "com.google.gms.google-services" // If you're using Firebase or Google services
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace = "com.example.helpcare"
+    compileSdk = 34 // Hard-code to API level 34 or the version you want to use
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    defaultConfig {
+        applicationId = "com.example.helpcare"
+        minSdk = 21 // Replace with your minimum supported SDK version
+        targetSdk = 34 // Replace with the desired target SDK version
+        versionCode = 1 // Replace with your version code
+        versionName = "1.0" // Replace with your version name
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.debug
+            // You should configure a proper signing key for production builds here
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+}
